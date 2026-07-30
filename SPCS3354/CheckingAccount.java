@@ -16,19 +16,11 @@ public class CheckingAccount extends BankAccount {
 
     @Override
     public void printBankAccount() {
-        System.out.println("Owner: " + owner);
-        System.out.println("Account Number: " + number);
-        System.out.println("Balance: " + balance);
-        System.out.println("Account Type: Checking");
-        System.out.println("Check Limit: " + checkLimit);
+        System.out.println(owner + "," + number + "," + balance + ",checking," + checkLimit);
     }
 
     @Override
     public void printBankAccount(PrintWriter pw) {
-        pw.println("Owner: " + owner);
-        pw.println("Account Number: " + number);
-        pw.println("Balance: " + balance);
-        pw.println("Account Type: Checking");
-        pw.println("Check Limit: " + checkLimit);
+        pw.println(owner + "," + number + "," + balance + ",checking," + checkLimit);
     }
 }
