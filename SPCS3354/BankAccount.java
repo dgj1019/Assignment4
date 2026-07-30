@@ -20,15 +20,10 @@ public abstract class BankAccount {
     }
 
     public void printBankAccount(){
-        System.out.println("Owner: " + owner);
-        System.out.println("Account Number: " + number);
-        System.out.println("Balance: " + balance);
+        System.out.println(owner + "," + number + "," + balance);
     }
 
     public void printBankAccount(PrintWriter pw){
-        pw.println("Owner: " + owner);
-        pw.println("Account Number: " + number);
-        pw.println("Balance: " + balance);
+        pw.println(owner + "," + number + "," + balance);
     }
-
 }
