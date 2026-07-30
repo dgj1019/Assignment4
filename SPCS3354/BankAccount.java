@@ -19,11 +19,6 @@ public abstract class BankAccount {
         return number;
     }
 
-    public void printBankAccount(){
-        System.out.println(owner + "," + number + "," + balance);
-    }
-
-    public void printBankAccount(PrintWriter pw){
-        pw.println(owner + "," + number + "," + balance);
-    }
+    public abstract void printBankAccount();
+    public abstract void printBankAccount(PrintWriter pw);
 }
