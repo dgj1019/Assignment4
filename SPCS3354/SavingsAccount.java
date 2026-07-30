@@ -16,19 +16,11 @@ public class SavingsAccount extends BankAccount {
 
     @Override
     public void printBankAccount() {
-        System.out.println("Owner: " + owner);
-        System.out.println("Account Number: " + number);
-        System.out.println("Balance: " + balance);
-        System.out.println("Account Type: Savings");
-        System.out.println("Interest Rate: " + interest);
+        System.out.println(owner + "," + number + "," + balance + ",savings," + interest);
     }
 
     @Override
     public void printBankAccount(PrintWriter pw) {
-        pw.println("Owner: " + owner);
-        pw.println("Account Number: " + number);
-        pw.println("Balance: " + balance);
-        pw.println("Account Type: Savings");
-        pw.println("Interest Rate: " + interest);
+        pw.println(owner + "," + number + "," + balance + ",savings," + interest);
     }
 }
