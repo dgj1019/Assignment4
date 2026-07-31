@@ -3,8 +3,8 @@ package SPCS3354;
 import java.io.PrintWriter;
 
 /**
- * Represents a generic bank account.
- */
+* Represents a generic bank account.
+*/
 public abstract class BankAccount {
     protected String owner;
     protected int number;
