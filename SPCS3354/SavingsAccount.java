@@ -36,6 +36,11 @@ public class SavingsAccount extends BankAccount {
         System.out.println(owner + "," + number + "," + balance + ",savings," + interest);
     }
 
+    /**
+    * Prints the savings account information to a file.
+    *
+    * @param pw the PrintWriter used to write the account information
+    */
     @Override
     public void printBankAccount(PrintWriter pw) {
         pw.println(owner + "," + number + "," + balance + ",savings," + interest);
