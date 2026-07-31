@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * SPAssignment4 comaints the main method for the SPCS3354 package. The SPCS3354 package
+ * SPAssignment4 conaints the main method for the SPCS3354 package. The SPCS3354 package
  * acts as a way to parse and sort bank information from properly formatted input files.
  * 
  * <p> 
@@ -18,16 +18,16 @@ import java.util.Scanner;
  * 
  * Then a try-catch block is used with a Scanner and PrintWriter object to read/write information
  * from the files, and catch a FileNotFoundException which means the user input the wrong fileName,
- * or the file does not exit.
+ * or the file does not exist.
  * 
  * Then, while there is a line to read, I create a String object to store the token, then another
  * try-catch block.
  * 
- * In the second try-catch block each line is parsed into a String array using the ',' as a seperator. I can then
+ * In the second try-catch block each line is parsed into a String array using the ',' as a delimiter. I can then
  * read each field from the array into variables of their specific type, using the wrapper class methods
  * Integer.parseInt & Double.parseDouble to type-cast those string values so that they can be stored appropriately.
  * 
- * If-else statements then check which account type we want to create, and create the respective interest & checkLim
+ * If-else statements then check which account type we want to create, and create the respective interest or checkLim
  * variables. Then each account is added to the BankAccount ArrayList. If the parsing of the line goes wrong in some 
  * form: NumberFormatException, ArrayIndexOutOfBounds, etc.. the catch block will catch the exception and print the 
  * problematic line to the terminal.
