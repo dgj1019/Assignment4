@@ -32,14 +32,14 @@ import java.util.Scanner;
  * form: NumberFormatException, ArrayIndexOutOfBounds, etc.. the catch block will catch the exception and print the 
  * problematic line to the terminal.
  * 
- * Finally, each succesfully created SavingsAccount & CheckingAccount object is sorted using the custom AccountNumberComparator
- * and written to the output file using the PrintWriter object. Finally the program will print Bye!
+ * Then, each succesfully created SavingsAccount & CheckingAccount object is sorted using the
+ * Collections.sort method with a custom AccountNumberComparator object and written to the output
+ * file using the PrintWriter object. Finally, the program prints Bye!
  * 
  * @param args Contains the names of the input/output files stored in a String array
  * 
  * @author Jack Grossenbacher
  * @author Daniel Gallegos
- * @version 1.0.0
  */
 
 
