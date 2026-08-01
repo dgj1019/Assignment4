@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * SPAssignment4 comaints the main method for the SPCS3354 package. The SPCS3354 package
+ * SPAssignment4 conaints the main method for the SPCS3354 package. The SPCS3354 package
  * acts as a way to parse and sort bank information from properly formatted input files.
  * 
  * <p> 
@@ -18,7 +18,7 @@ import java.util.Scanner;
  * 
  * Then a try-catch block is used with a Scanner and PrintWriter object to read/write information
  * from the files, and catch a FileNotFoundException which means the user input the wrong fileName,
- * or the file does not exit.
+ * or the file does not exist.
  * 
  * Then, while there is a line to read, I create a String object to store the token, then another
  * try-catch block.
@@ -27,8 +27,8 @@ import java.util.Scanner;
  * read each field from the array into variables of their specific type, using the wrapper class methods
  * Integer.parseInt & Double.parseDouble to type-cast those string values so that they can be stored appropriately.
  * 
- * If-else statements then check which account type we want to create, and create the respective interest & checkLim
- * variables. Then each account is added to the BankAccount ArrayList. If the parsing of the line goes wrong in some 
+ * A switch statements then checks which account type we want to create, and create the respective interest or checkLim
+ * variables. Then, each account is added to the BankAccount ArrayList. If the parsing of the line goes wrong in some 
  * form: NumberFormatException, ArrayIndexOutOfBounds, etc.. the catch block will catch the exception and print the 
  * problematic line to the terminal.
  * 
@@ -44,7 +44,7 @@ import java.util.Scanner;
 
 
 public class SPAssignment4 {
-    @SuppressWarnings({"ConvertToStringSwitch", "CallToPrintStackTrace", "empty-statement", "UseSpecificCatch"})
+    @SuppressWarnings({ "UseSpecificCatch"})
     public static void main(String[] args) {
         int i = args.length;
 
@@ -75,23 +75,29 @@ public class SPAssignment4 {
                     double balance = Double.parseDouble(fields[2]);
                     String accType = fields[3];
 
+                    switch (accType) {
+                        
+                        case "checking":
+                            int checkLim = Integer.parseInt(fields[4]);
+                            CheckingAccount cAccount = new CheckingAccount(name, accountNum, balance, checkLim);
+                            accountList.add(cAccount);                            
+                            break;
 
-                    if ("checking".equals(accType)) {
-                        int checkLim = Integer.parseInt(fields[4]);
-                        CheckingAccount cAccount = new CheckingAccount(name, accountNum, balance, checkLim);
-                        accountList.add(cAccount);
-                    }
-                    else if ("savings".equals(accType)) {
+                        case "savings":
                         double interest = Double.parseDouble(fields[4]);
                         SavingsAccount sAccount = new SavingsAccount(name, accountNum, balance, interest);
                         accountList.add(sAccount);
+                            break;
+
+                        default:
+                            throw new IllegalArgumentException("Unknown account type");
                     }
-                    else {
-                        throw new IllegalArgumentException("Unknown account type");
-                    }
-                
+                } catch (NumberFormatException e) {
+                    System.out.println("Improperly formatted line: " + line);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Improperly formatted line: " + line);
                 } catch (Exception e) {
-                    System.out.println("Invalid input: " + line);
+                    System.out.println("Improperly formatted line: " + line);
                 }            
             }
 
@@ -102,12 +108,12 @@ public class SPAssignment4 {
             }
 
             writer.close();
-so 
+
             System.out.println("Bye!");
+
         } catch (FileNotFoundException e) {
             System.out.println("Usage: SPCS3354.SPAssignment4 input_file output_file");
-            e.printStackTrace();
+            System.out.println("File not found: " + e.getMessage());
         }
-        
     }
 }
